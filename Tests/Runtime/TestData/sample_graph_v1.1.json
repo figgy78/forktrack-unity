@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.1.0",
+  "version": { "major": 1, "minor": 0 },
+  "categories": [
+    { "id": "main", "name": "Main Quest", "color": "#ec4899" }
+  ],
+  "groups": [],
+  "objects": [
+    { "id": "obj-fred", "name": "Fred" },
+    { "id": "obj-door", "name": "Door" }
+  ],
+  "actions": [
+    { "id": "act-interact", "name": "Interact" },
+    { "id": "act-open", "name": "Open" }
+  ],
+  "nodes": [
+    {
+      "id": "node-1",
+      "position": { "x": 100, "y": 100 },
+      "type": "Node",
+      "data": {
+        "objectId": "obj-fred",
+        "actionId": "act-interact",
+        "title": null,
+        "description": "Talk to Fred",
+        "category": "main",
+        "notes": [],
+        "autoCompleteOnUnlock": false
+      }
+    },
+    {
+      "id": "node-2",
+      "position": { "x": 300, "y": 100 },
+      "type": "Node",
+      "data": {
+        "objectId": "obj-door",
+        "actionId": "act-open",
+        "title": "First Door",
+        "description": "Open the first door",
+        "category": "main",
+        "notes": [],
+        "autoCompleteOnUnlock": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "sourceNodeId": "node-1",
+      "targetNodeId": "node-2",
+      "data": { "requiredState": "OnComplete" }
+    }
+  ]
+}

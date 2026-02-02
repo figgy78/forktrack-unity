@@ -1,0 +1,18 @@
+{
+  "name": "ForkTrack.Editor",
+  "rootNamespace": "ForkTrack.Editor",
+  "references": [
+    "GUID:bfc199deffbbf4dba9fab60320a7a8a9"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

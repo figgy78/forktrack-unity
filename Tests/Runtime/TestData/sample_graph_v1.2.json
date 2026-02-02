@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.2.0",
+  "version": { "major": 1, "minor": 0 },
+  "categories": [
+    { "id": "main", "name": "Main Quest", "color": "#ec4899" },
+    { "id": "side", "name": "Side Quest", "color": "#3b82f6" }
+  ],
+  "groups": [
+    { "id": "group-1", "name": "Tutorial", "color": "#e5e7eb", "position": { "x": 50, "y": 50 }, "size": { "width": 600, "height": 200 } }
+  ],
+  "objects": [
+    { "id": "obj-fred", "name": "Fred" },
+    { "id": "obj-chest", "name": "Chest" },
+    { "id": "obj-door", "name": "Door" }
+  ],
+  "actions": [
+    { "id": "act-interact", "name": "Interact" },
+    { "id": "act-open", "name": "Open" },
+    { "id": "act-collect", "name": "Collect" }
+  ],
+  "variables": [
+    { "id": "var-coins", "name": "coins", "type": "number", "defaultValue": "0" },
+    { "id": "var-haskey", "name": "hasKey", "type": "boolean", "defaultValue": "false" }
+  ],
+  "nodes": [
+    {
+      "id": "node-1",
+      "position": { "x": 100, "y": 100 },
+      "type": "Node",
+      "data": {
+        "objectId": "obj-fred",
+        "actionId": "act-interact",
+        "title": null,
+        "description": "Talk to Fred to start quest",
+        "category": "main",
+        "groupId": "group-1",
+        "notes": [{ "text": "This starts the main quest", "trigger": "OnUnlock" }],
+        "autoCompleteOnUnlock": false,
+        "variableActions": [
+          { "id": "va-1", "variableId": "var-coins", "trigger": "OnComplete", "operation": "ADD", "value": "10" }
+        ]
+      }
+    },
+    {
+      "id": "node-2",
+      "position": { "x": 300, "y": 100 },
+      "type": "Node",
+      "data": {
+        "objectId": "obj-chest",
+        "actionId": "act-open",
+        "title": "Secret Chest",
+        "description": "Open the secret chest",
+        "category": "side",
+        "groupId": "group-1",
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "variableActions": [
+          { "id": "va-2", "variableId": "var-haskey", "trigger": "OnComplete", "operation": "SET", "value": "true" },
+          { "id": "va-3", "variableId": "var-coins", "trigger": "OnComplete", "operation": "ADD", "value": "50" }
+        ]
+      }
+    },
+    {
+      "id": "node-3",
+      "position": { "x": 500, "y": 100 },
+      "type": "Node",
+      "data": {
+        "objectId": "obj-door",
+        "actionId": "act-open",
+        "title": null,
+        "description": "Open the locked door",
+        "category": "main",
+        "notes": [],
+        "autoCompleteOnUnlock": true,
+        "variableActions": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "sourceNodeId": "node-1",
+      "targetNodeId": "node-2",
+      "data": {
+        "requiredState": "OnComplete",
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "edge-2",
+      "sourceNodeId": "node-2",
+      "targetNodeId": "node-3",
+      "data": {
+        "requiredState": "OnComplete",
+        "variableConditions": [
+          { "id": "vc-1", "variableId": "var-haskey", "operator": "==", "value": "true" },
+          { "id": "vc-2", "variableId": "var-coins", "operator": ">=", "value": "50" }
+        ]
+      }
+    }
+  ]
+}

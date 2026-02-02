@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "1.2.0",
+  "version": {
+    "major": 1,
+    "minor": 0
+  },
+  "objects": [
+    { "id": "obj-king", "name": "King", "category": "Characters" },
+    { "id": "obj-dragon", "name": "Dragon", "category": "Enemies" },
+    { "id": "obj-sword", "name": "Sword", "category": "Items" },
+    { "id": "obj-merchant", "name": "Merchant", "category": "Characters" },
+    { "id": "obj-cave", "name": "Cave", "category": "Locations" }
+  ],
+  "actions": [
+    { "id": "act-speak", "name": "Speak" },
+    { "id": "act-defeat", "name": "Defeat" },
+    { "id": "act-obtain", "name": "Obtain" },
+    { "id": "act-explore", "name": "Explore" },
+    { "id": "act-trade", "name": "Trade" }
+  ],
+  "variables": [
+    {
+      "id": "var-gold",
+      "name": "gold",
+      "type": "NUMBER",
+      "defaultValue": 50
+    },
+    {
+      "id": "var-dragonslayer",
+      "name": "isDragonSlayer",
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    {
+      "id": "var-reputation",
+      "name": "reputation",
+      "type": "NUMBER",
+      "defaultValue": 0
+    }
+  ],
+  "categories": [
+    { "id": "cat-main", "name": "Main Quest", "color": "#FFD700" },
+    { "id": "cat-side", "name": "Side Quest", "color": "#87CEEB" }
+  ],
+  "groups": [],
+  "nodes": [
+    {
+      "id": "quest-1",
+      "type": "Node",
+      "position": { "x": 100, "y": 100 },
+      "data": {
+        "objectId": "obj-king",
+        "actionId": "act-speak",
+        "title": "Audience with the King",
+        "titleOverridden": true,
+        "description": "Speak with the King to learn about the dragon threat",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "The King summons you to the throne room", "trigger": "OnUnlock" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-1",
+            "variableId": "var-gold",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "quest-2",
+      "type": "Node",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "objectId": "obj-sword",
+        "actionId": "act-obtain",
+        "title": "The Legendary Blade",
+        "titleOverridden": true,
+        "description": "Find the legendary dragon-slaying sword",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "quest-3",
+      "type": "Node",
+      "position": { "x": 500, "y": 100 },
+      "data": {
+        "objectId": "obj-dragon",
+        "actionId": "act-defeat",
+        "title": "Slay the Dragon",
+        "titleOverridden": true,
+        "description": "Defeat the dragon terrorizing the kingdom",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "The dragon has been slain! You are a hero!", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-2",
+            "variableId": "var-dragonslayer",
+            "trigger": "OnComplete",
+            "operation": "SET",
+            "value": true
+          },
+          {
+            "id": "va-3",
+            "variableId": "var-reputation",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "quest-4",
+      "type": "Node",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "objectId": "obj-king",
+        "actionId": "act-speak",
+        "title": "Return to the King",
+        "titleOverridden": true,
+        "description": "Report your victory to the King",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "The King rewards you handsomely!", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-4",
+            "variableId": "var-gold",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 500
+          }
+        ]
+      }
+    },
+    {
+      "id": "quest-side-1",
+      "type": "Node",
+      "position": { "x": 300, "y": 200 },
+      "data": {
+        "objectId": "obj-merchant",
+        "actionId": "act-trade",
+        "title": "Help the Merchant",
+        "titleOverridden": true,
+        "description": "The merchant needs help recovering stolen goods",
+        "category": "cat-side",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-5",
+            "variableId": "var-gold",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 75
+          },
+          {
+            "id": "va-6",
+            "variableId": "var-reputation",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 25
+          }
+        ]
+      }
+    },
+    {
+      "id": "quest-side-2",
+      "type": "Node",
+      "position": { "x": 300, "y": 300 },
+      "data": {
+        "objectId": "obj-cave",
+        "actionId": "act-explore",
+        "title": "The Hidden Cave",
+        "titleOverridden": true,
+        "description": "Explore the mysterious cave near the village",
+        "category": "cat-side",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "You discovered ancient treasure!", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-7",
+            "variableId": "var-gold",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 150
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1-2",
+      "source": "quest-1",
+      "target": "quest-2",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "edge-2-3",
+      "source": "quest-2",
+      "target": "quest-3",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "edge-3-4",
+      "source": "quest-3",
+      "target": "quest-4",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": [
+          {
+            "id": "vc-1",
+            "variableId": "var-dragonslayer",
+            "operator": "==",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "edge-1-side1",
+      "source": "quest-1",
+      "target": "quest-side-1",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "edge-1-side2",
+      "source": "quest-1",
+      "target": "quest-side-2",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    }
+  ]
+}

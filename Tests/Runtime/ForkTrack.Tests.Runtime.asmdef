@@ -1,0 +1,22 @@
+{
+  "name": "ForkTrack.Tests.Runtime",
+  "rootNamespace": "ForkTrack.Tests",
+  "references": [
+    "GUID:bfc199deffbbf4dba9fab60320a7a8a9",
+    "UnityEngine.TestRunner",
+    "UnityEditor.TestRunner"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

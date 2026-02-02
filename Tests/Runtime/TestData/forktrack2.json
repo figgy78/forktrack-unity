@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": "1.2.0",
+  "version": {
+    "major": 1,
+    "minor": 0
+  },
+  "categories": [
+    {
+      "id": "cat_1763896892321",
+      "name": "Tape",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "cat_1763896930200",
+      "name": "Environment",
+      "color": "#7ea178"
+    },
+    {
+      "id": "cat_1763896936703",
+      "name": "Sound",
+      "color": "#bb3bf7"
+    },
+    {
+      "id": "cat_1763897791024",
+      "name": "Document",
+      "color": "#f7a93b"
+    },
+    {
+      "id": "cat_1763898941877",
+      "name": "Other",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "cat_1763904512294",
+      "name": "Effect",
+      "color": "#f73b86"
+    }
+  ],
+  "groups": [
+    {
+      "id": "group_1768251939212",
+      "name": "test group",
+      "color": "#e5e7eb",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 400,
+        "height": 300
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "a2ff5149-7021-467b-991f-0a63e88c4b92",
+      "name": "Clock",
+      "category": "cat_1763896930200"
+    },
+    {
+      "id": "0b669dc9-fea2-4594-90e3-5ee5249dbfde",
+      "name": "UV Filter",
+      "category": "cat_1763898941877"
+    },
+    {
+      "id": "ab8a9448-d3cd-4504-a9ba-ea8de9282997",
+      "name": "Lamp",
+      "category": "cat_1763896930200"
+    },
+    {
+      "id": "13dd4690-a46e-4f65-943b-190be0ad0cb3",
+      "name": "SvalbardGuide",
+      "category": "cat_1763897791024"
+    },
+    {
+      "id": "87e9ddbe-405c-4fd3-8b00-496d2bbe5ffe",
+      "name": "Tape1",
+      "category": "cat_1763896892321"
+    },
+    {
+      "id": "fd3ede6a-2053-4ba6-9273-503fa42eff05",
+      "name": "TopDrawer",
+      "category": "cat_1763896930200"
+    },
+    {
+      "id": "17359d00-81dc-4ae9-968b-71e74c802270",
+      "name": "Tape2",
+      "category": "cat_1763896892321"
+    },
+    {
+      "id": "7995e8f0-c80c-4c37-92ba-d4ba6d723eb2",
+      "name": "UnfinishedLetter",
+      "category": "cat_1763897791024"
+    },
+    {
+      "id": "8757dffc-4251-4590-9b04-ce7d4984fb0d",
+      "name": "CassetteRecorderManual",
+      "category": "cat_1763897791024"
+    },
+    {
+      "id": "39421955-7dec-47c6-8533-52edcd122c24",
+      "name": "Window",
+      "category": "cat_1763896930200"
+    },
+    {
+      "id": "0d33bd78-3dd4-4aaa-88d5-22204806bf67",
+      "name": "PLAYER",
+      "category": "cat_1763904512294"
+    },
+    {
+      "id": "fb11dd8d-8f37-41ad-8264-c4bc9c993ec3",
+      "name": "Oscilloscope",
+      "category": "cat_1763896930200"
+    }
+  ],
+  "actions": [
+    {
+      "id": "c04c48d6-8eb1-4056-8522-259b71e53755",
+      "name": "PICKUP"
+    },
+    {
+      "id": "4b2b29e1-cae8-4566-8402-69e8567a5718",
+      "name": "PLAY"
+    },
+    {
+      "id": "641c5177-118d-4f7a-941e-83fcfe3da0b0",
+      "name": "EJECT"
+    },
+    {
+      "id": "39973541-5d43-4f7d-b68a-66387c6323fd",
+      "name": "OPEN"
+    },
+    {
+      "id": "90dfafcf-af2b-4214-9a98-91553fb4443f",
+      "name": "READ"
+    },
+    {
+      "id": "3996fbb3-3dc0-4626-b53e-41f45aeabf1a",
+      "name": "Effect"
+    },
+    {
+      "id": "49982c5e-5d2d-4c8e-b4c9-9ba543c0bcbd",
+      "name": "REWIND"
+    },
+    {
+      "id": "290117d3-b667-4e91-9bde-e627b481b87c",
+      "name": "INTERACT"
+    }
+  ],
+  "variables": [
+    {
+      "id": "var_1768086750506",
+      "name": "cfv",
+      "type": "number",
+      "defaultValue": 0,
+      "description": ""
+    },
+    {
+      "id": "var_1768251922788",
+      "name": "test",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node_1763899855645",
+      "position": {
+        "x": -270,
+        "y": 90
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "87e9ddbe-405c-4fd3-8b00-496d2bbe5ffe",
+        "actionId": "c04c48d6-8eb1-4056-8522-259b71e53755",
+        "title": "Tape1 - PICKUP",
+        "description": "Label: Play me",
+        "category": "cat_1763896892321",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763911706034",
+      "position": {
+        "x": -1125,
+        "y": 1875
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "ab8a9448-d3cd-4504-a9ba-ea8de9282997",
+        "actionId": "290117d3-b667-4e91-9bde-e627b481b87c",
+        "title": "Lamp - INTERACT",
+        "description": "Lamp UV light. This enables to view invisible text on Tape1. Tape now reads: \"Play Me AGAIN\" and dots indicating the positions of the flip switches to unscramble the blips (segment two) on Tape1. ",
+        "category": "cat_1763896930200",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763910957644",
+      "position": {
+        "x": -75,
+        "y": 1605
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "fb11dd8d-8f37-41ad-8264-c4bc9c993ec3",
+        "actionId": "49982c5e-5d2d-4c8e-b4c9-9ba543c0bcbd",
+        "title": "Oscilloscope - REWIND",
+        "description": "Notebook entry: \"7.12 hz. The same frequency Fred mentioned. But after the tape stopped. Probably just a signal delay.”  ",
+        "category": "cat_1763896930200",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763912346845",
+      "position": {
+        "x": -750,
+        "y": 330
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "0d33bd78-3dd4-4aaa-88d5-22204806bf67",
+        "actionId": "3996fbb3-3dc0-4626-b53e-41f45aeabf1a",
+        "title": "PLAYER - Effect (tape 1)",
+        "description": "Vision/memoryscape experience that ends in showing The Object. Requires Unscrambled Play Tape1 Segment 2. ",
+        "category": "cat_1763904512294",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388619579",
+      "position": {
+        "x": -60,
+        "y": 900
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "7995e8f0-c80c-4c37-92ba-d4ba6d723eb2",
+        "actionId": "90dfafcf-af2b-4214-9a98-91553fb4443f",
+        "title": "UnfinishedLetter - READ",
+        "description": "From Fred to Martin. ",
+        "category": "cat_1763897791024",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1768086450244",
+      "position": {
+        "x": 570,
+        "y": 465
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "[No Object] - [No Action]",
+        "description": "",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763912451456",
+      "position": {
+        "x": -750,
+        "y": 555
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "DEMO END",
+        "description": "End screen with WISHLIST call to action. ",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388250279",
+      "position": {
+        "x": 135,
+        "y": 555
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "39421955-7dec-47c6-8533-52edcd122c24",
+        "actionId": null,
+        "title": "Window - [No Action]",
+        "description": "It beings to sleet. Sound of rain tapping on window. ",
+        "category": "cat_1763896930200",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388090628",
+      "position": {
+        "x": -300,
+        "y": 540
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "87e9ddbe-405c-4fd3-8b00-496d2bbe5ffe",
+        "actionId": "641c5177-118d-4f7a-941e-83fcfe3da0b0",
+        "title": "Tape1 - EJECT",
+        "description": "",
+        "category": "cat_1763896892321",
+        "groupId": "group_1768251939212",
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763912532403",
+      "position": {
+        "x": 555,
+        "y": 900
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "13dd4690-a46e-4f65-943b-190be0ad0cb3",
+        "actionId": "90dfafcf-af2b-4214-9a98-91553fb4443f",
+        "title": "SvalbardGuide - READ",
+        "description": "Illustrated survival guide",
+        "category": "cat_1763897791024",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [
+          {
+            "propertyId": "d33eba3a-16d9-4387-bcf6-e9bf80cf7be6",
+            "propertyKey": "general_events",
+            "propertyName": "general events",
+            "valueType": "multi",
+            "validationMode": "strict",
+            "values": [
+              {
+                "value": "event4",
+                "weight": 100,
+                "delay": null,
+                "amount": null,
+                "text": "with value"
+              }
+            ],
+            "trigger": "OnComplete",
+            "repeatable": false,
+            "skipFirst": false
+          }
+        ],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763911430387",
+      "position": {
+        "x": -780,
+        "y": 1680
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "a2ff5149-7021-467b-991f-0a63e88c4b92",
+        "actionId": "290117d3-b667-4e91-9bde-e627b481b87c",
+        "title": "Clock - INTERACT",
+        "description": "Reset the clock to noon. \nFind UV filter",
+        "category": "cat_1763896930200",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763900536838",
+      "position": {
+        "x": -495,
+        "y": 1125
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "17359d00-81dc-4ae9-968b-71e74c802270",
+        "actionId": "4b2b29e1-cae8-4566-8402-69e8567a5718",
+        "title": "Tape2 - PLAY",
+        "description": "Segment: The Experiment (scrambled)\nSegment: Log (scrambled)\n\nFull tape is scrambled. \n\nPlay unscrambled version of tape with flip switch combination: 0 0 0 1 1 0 1 0\n\nPlayer blacks out during Segment 1 and tape is at the end when awakens.  Rewind and replay to hear second segment. \n\nPlayer learns about C3-7A in the log in the second segment. ",
+        "category": "cat_1763896892321",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763900599154",
+      "position": {
+        "x": -465,
+        "y": 1395
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "17359d00-81dc-4ae9-968b-71e74c802270",
+        "actionId": "641c5177-118d-4f7a-941e-83fcfe3da0b0",
+        "title": "Tape2 - EJECT",
+        "description": "",
+        "category": "cat_1763896892321",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763910335048",
+      "position": {
+        "x": -105,
+        "y": 1380
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "fb11dd8d-8f37-41ad-8264-c4bc9c993ec3",
+        "actionId": "3996fbb3-3dc0-4626-b53e-41f45aeabf1a",
+        "title": "Oscilloscope - Effect (Tape2)",
+        "description": "Oscilloscope flashes after completing segment 2, showing 7.12 hz tone AFTER the tape stops.",
+        "category": "cat_1763904512294",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1768086564128",
+      "position": {
+        "x": 630,
+        "y": 615
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "[No Object] - [No Action]",
+        "description": "",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1768140105374",
+      "position": {
+        "x": 510,
+        "y": 1395
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "[No Object] - [No Action]",
+        "description": "",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763904180363",
+      "position": {
+        "x": -135,
+        "y": 1140
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "0d33bd78-3dd4-4aaa-88d5-22204806bf67",
+        "actionId": "3996fbb3-3dc0-4626-b53e-41f45aeabf1a",
+        "title": "PLAYER - Effect (Tape2)",
+        "description": "Player blacks out during Tape 2 - Segment The Experiment at the high pitch sound. Audio note about blacking out and rewinding and play again. ",
+        "category": "cat_1763904512294",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763387203190",
+      "position": {
+        "x": -315,
+        "y": 285
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "87e9ddbe-405c-4fd3-8b00-496d2bbe5ffe",
+        "actionId": "4b2b29e1-cae8-4566-8402-69e8567a5718",
+        "title": "Tape1 - PLAY",
+        "description": "Segment 1: Fred's Introduction\nSegment 2: Segment of strange blips (scrambled)\n\nIf Tape1 segment 2is replayed with right flip switch combo, it sounds alien and scary. This trigger a vision/memoryscape experience that ends in showing The Object. ",
+        "category": "cat_1763896892321",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388541676",
+      "position": {
+        "x": -495,
+        "y": 930
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "17359d00-81dc-4ae9-968b-71e74c802270",
+        "actionId": "c04c48d6-8eb1-4056-8522-259b71e53755",
+        "title": "Tape2 - PICKUP",
+        "description": "Label: \"Experiment\"\n",
+        "category": "cat_1763896892321",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388826556",
+      "position": {
+        "x": 240,
+        "y": 900
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "8757dffc-4251-4590-9b04-ce7d4984fb0d",
+        "actionId": "90dfafcf-af2b-4214-9a98-91553fb4443f",
+        "title": "CassetteRecorderManual - READ",
+        "description": "Hand-drawn Audio Processor schematic tucked inside. \nScribbled in a different color pen, erratically are: 0 0 0 1 1 0 1 0. This is the flip switch combination for Tape 2.",
+        "category": "cat_1763897791024",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [
+          {
+            "propertyId": "d33eba3a-16d9-4387-bcf6-e9bf80cf7be6",
+            "propertyKey": "general_events",
+            "propertyName": "general events",
+            "valueType": "multi",
+            "validationMode": "strict",
+            "values": [
+              {
+                "value": "event1",
+                "weight": 100,
+                "delay": null,
+                "amount": null,
+                "text": null
+              }
+            ],
+            "trigger": "OnComplete",
+            "repeatable": false,
+            "skipFirst": false
+          }
+        ],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1768140122636",
+      "position": {
+        "x": 915,
+        "y": 1455
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "[No Object] - [No Action]",
+        "description": "",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763388435796",
+      "position": {
+        "x": -540,
+        "y": 720
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "fd3ede6a-2053-4ba6-9273-503fa42eff05",
+        "actionId": "39973541-5d43-4f7d-b68a-66387c6323fd",
+        "title": "TopDrawer - OPEN",
+        "description": "TopDrawer contains Tape 2 and An Unfinished Letter. ",
+        "category": "cat_1763896930200",
+        "groupId": "group_1768251939212",
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763911133168",
+      "position": {
+        "x": -390,
+        "y": 1665
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "a2ff5149-7021-467b-991f-0a63e88c4b92",
+        "actionId": "3996fbb3-3dc0-4626-b53e-41f45aeabf1a",
+        "title": "Clock - Effect",
+        "description": "Clock ticking intensifies. It is uneven. ",
+        "category": "cat_1763904512294",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1763911562685",
+      "position": {
+        "x": -750,
+        "y": 1875
+      },
+      "type": "Node",
+      "data": {
+        "objectId": "0b669dc9-fea2-4594-90e3-5ee5249dbfde",
+        "actionId": "c04c48d6-8eb1-4056-8522-259b71e53755",
+        "title": "UV Filter - PICKUP",
+        "description": "",
+        "category": "cat_1763898941877",
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node_1768086586252",
+      "position": {
+        "x": 390,
+        "y": 270
+      },
+      "type": "Node",
+      "data": {
+        "objectId": null,
+        "actionId": null,
+        "title": "[No Object] - [No Action]",
+        "description": "",
+        "category": null,
+        "groupId": null,
+        "notes": [],
+        "autoCompleteOnUnlock": false,
+        "repeatable": false,
+        "sound": [],
+        "dependencyCondition": "AND",
+        "customEvents": [],
+        "variableActions": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "node_1763387203190-node_1763388090628",
+      "sourceNodeId": "node_1763387203190",
+      "targetNodeId": "node_1763388090628",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388090628-node_1763388250279",
+      "sourceNodeId": "node_1763388090628",
+      "targetNodeId": "node_1763388250279",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388090628-node_1763388435796",
+      "sourceNodeId": "node_1763388090628",
+      "targetNodeId": "node_1763388435796",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763911133168-node_1763911430387",
+      "sourceNodeId": "node_1763911133168",
+      "targetNodeId": "node_1763911430387",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763900536838-node_1763900599154",
+      "sourceNodeId": "node_1763900536838",
+      "targetNodeId": "node_1763900599154",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388435796-node_1763388541676",
+      "sourceNodeId": "node_1763388435796",
+      "targetNodeId": "node_1763388541676",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388435796-node_1763388619579",
+      "sourceNodeId": "node_1763388435796",
+      "targetNodeId": "node_1763388619579",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388090628-node_1763388826556",
+      "sourceNodeId": "node_1763388090628",
+      "targetNodeId": "node_1763388826556",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763911430387-node_1763911562685",
+      "sourceNodeId": "node_1763911430387",
+      "targetNodeId": "node_1763911562685",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763900536838-node_1763904180363",
+      "sourceNodeId": "node_1763900536838",
+      "targetNodeId": "node_1763904180363",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763387203190-node_1763912346845",
+      "sourceNodeId": "node_1763387203190",
+      "targetNodeId": "node_1763912346845",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763912346845-node_1763912451456",
+      "sourceNodeId": "node_1763912346845",
+      "targetNodeId": "node_1763912451456",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388541676-node_1763900536838",
+      "sourceNodeId": "node_1763388541676",
+      "targetNodeId": "node_1763900536838",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763388090628-node_1763912532403",
+      "sourceNodeId": "node_1763388090628",
+      "targetNodeId": "node_1763912532403",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763910335048-node_1763910957644",
+      "sourceNodeId": "node_1763910335048",
+      "targetNodeId": "node_1763910957644",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": [
+          {
+            "id": "vc_1768251929900",
+            "variableId": "var_1768251922788",
+            "operator": "==",
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "node_1763911562685-node_1763911706034",
+      "sourceNodeId": "node_1763911562685",
+      "targetNodeId": "node_1763911706034",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763899855645-node_1763387203190",
+      "sourceNodeId": "node_1763899855645",
+      "targetNodeId": "node_1763387203190",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763900536838-node_1763910335048",
+      "sourceNodeId": "node_1763900536838",
+      "targetNodeId": "node_1763910335048",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1763910957644-node_1763911133168",
+      "sourceNodeId": "node_1763910957644",
+      "targetNodeId": "node_1763911133168",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "node_1768086450244-node_1768086564128",
+      "sourceNodeId": "node_1768086450244",
+      "targetNodeId": "node_1768086564128",
+      "data": {
+        "requiredState": "OnComplete",
+        "negate": false,
+        "variableConditions": []
+      }
+    }
+  ],
+  "customEventDefinitions": [
+    {
+      "id": "d33eba3a-16d9-4387-bcf6-e9bf80cf7be6",
+      "key": "general_events",
+      "name": "general events",
+      "valueType": "multi",
+      "validationMode": "strict",
+      "icon": null,
+      "csvUrl": null,
+      "allowedValues": [
+        {
+          "value": "event1",
+          "label": null
+        },
+        {
+          "value": "event2",
+          "label": null
+        },
+        {
+          "value": "event3",
+          "label": null
+        },
+        {
+          "value": "event4",
+          "label": "with value"
+        }
+      ]
+    }
+  ]
+}

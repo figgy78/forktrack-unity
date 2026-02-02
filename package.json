@@ -1,0 +1,34 @@
+{
+  "name": "com.forktrack.unity",
+  "version": "1.0.0",
+  "displayName": "ForkTrack",
+  "description": "Integrate ForkTrack narrative graphs into Unity games. Features static C# event API, variable system with operations and conditions, offline caching, secure API integration, and full v1.2.0 schema support.",
+  "unity": "2021.3",
+  "keywords": [
+    "narrative",
+    "quest",
+    "graph",
+    "forktrack",
+    "progression",
+    "story",
+    "rpg",
+    "dialogue"
+  ],
+  "author": {
+    "name": "ForkTrack",
+    "url": "https://forktrack.app"
+  },
+  "dependencies": {},
+  "samples": [
+    {
+      "displayName": "Basic Usage",
+      "description": "Basic examples demonstrating graph loading, events, and variable system",
+      "path": "Samples~/BasicUsage"
+    },
+    {
+      "displayName": "Quest System",
+      "description": "Complete quest system example with inventory integration",
+      "path": "Samples~/QuestSystem"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "version": { "major": 1, "minor": 0 },
+  "categories": [
+    { "id": "main", "name": "Main Quest", "color": "#ec4899" }
+  ],
+  "groups": [],
+  "nodes": [
+    {
+      "id": "node-1",
+      "position": { "x": 100, "y": 100 },
+      "type": "Node",
+      "data": {
+        "title": "Start Quest",
+        "description": "Begin the adventure",
+        "category": "main",
+        "notes": [],
+        "autoCompleteOnUnlock": false
+      }
+    },
+    {
+      "id": "node-2",
+      "position": { "x": 300, "y": 100 },
+      "type": "Node",
+      "data": {
+        "title": "Find Key",
+        "description": "Find the hidden key",
+        "category": "main",
+        "notes": [{ "text": "Look under the mat", "trigger": "OnUnlock" }],
+        "autoCompleteOnUnlock": false
+      }
+    },
+    {
+      "id": "node-3",
+      "position": { "x": 500, "y": 100 },
+      "type": "Node",
+      "data": {
+        "title": "Open Door",
+        "description": "Open the locked door",
+        "category": "main",
+        "notes": [],
+        "autoCompleteOnUnlock": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "sourceNodeId": "node-1",
+      "targetNodeId": "node-2",
+      "data": { "requiredState": "OnComplete" }
+    },
+    {
+      "id": "edge-2",
+      "sourceNodeId": "node-2",
+      "targetNodeId": "node-3",
+      "data": { "requiredState": "OnComplete" }
+    }
+  ]
+}

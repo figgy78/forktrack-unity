@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "1.2.0",
+  "version": {
+    "major": 1,
+    "minor": 0
+  },
+  "objects": [
+    { "id": "obj-npc", "name": "NPC", "category": "Characters" },
+    { "id": "obj-door", "name": "Door", "category": "Environment" },
+    { "id": "obj-item", "name": "Key", "category": "Items" },
+    { "id": "obj-chest", "name": "Chest", "category": "Items" }
+  ],
+  "actions": [
+    { "id": "act-talk", "name": "Talk" },
+    { "id": "act-open", "name": "Open" },
+    { "id": "act-pickup", "name": "Pickup" },
+    { "id": "act-unlock", "name": "Unlock" }
+  ],
+  "variables": [
+    {
+      "id": "var-coins",
+      "name": "coins",
+      "type": "NUMBER",
+      "defaultValue": 0
+    },
+    {
+      "id": "var-haskey",
+      "name": "hasKey",
+      "type": "BOOLEAN",
+      "defaultValue": false
+    }
+  ],
+  "categories": [
+    { "id": "cat-main", "name": "Main Quest", "color": "#4CAF50" },
+    { "id": "cat-side", "name": "Side Quest", "color": "#2196F3" }
+  ],
+  "groups": [],
+  "nodes": [
+    {
+      "id": "node-1",
+      "type": "Node",
+      "position": { "x": 100, "y": 100 },
+      "data": {
+        "objectId": "obj-npc",
+        "actionId": "act-talk",
+        "title": "Meet the Village Elder",
+        "titleOverridden": true,
+        "description": "The village elder tells you about a hidden treasure",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "Welcome, adventurer!", "trigger": "OnUnlock" },
+          { "text": "The elder nods approvingly", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-1",
+            "variableId": "var-coins",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "node-2",
+      "type": "Node",
+      "position": { "x": 300, "y": 100 },
+      "data": {
+        "objectId": "obj-item",
+        "actionId": "act-pickup",
+        "title": null,
+        "titleOverridden": false,
+        "description": "Find the golden key in the forest",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-2",
+            "variableId": "var-haskey",
+            "trigger": "OnComplete",
+            "operation": "SET",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "node-3",
+      "type": "Node",
+      "position": { "x": 500, "y": 100 },
+      "data": {
+        "objectId": "obj-door",
+        "actionId": "act-unlock",
+        "title": "Unlock the Ancient Door",
+        "titleOverridden": true,
+        "description": "Use the key to unlock the ancient door",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "The door creaks open, revealing the treasure room", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": []
+      }
+    },
+    {
+      "id": "node-4",
+      "type": "Node",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "objectId": "obj-chest",
+        "actionId": "act-open",
+        "title": "Claim the Treasure",
+        "titleOverridden": true,
+        "description": "Open the treasure chest to claim your reward",
+        "category": "cat-main",
+        "groupId": null,
+        "autoCompleteOnUnlock": false,
+        "notes": [
+          { "text": "Congratulations! You found the legendary treasure!", "trigger": "OnComplete" }
+        ],
+        "todos": [],
+        "customEvents": [],
+        "variableActions": [
+          {
+            "id": "va-3",
+            "variableId": "var-coins",
+            "trigger": "OnComplete",
+            "operation": "ADD",
+            "value": 100
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1-2",
+      "source": "node-1",
+      "target": "node-2",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    },
+    {
+      "id": "edge-2-3",
+      "source": "node-2",
+      "target": "node-3",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": [
+          {
+            "id": "vc-1",
+            "variableId": "var-haskey",
+            "operator": "==",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "edge-3-4",
+      "source": "node-3",
+      "target": "node-4",
+      "sourceHandle": null,
+      "targetHandle": null,
+      "type": "customEdge",
+      "data": {
+        "requiredState": "OnComplete",
+        "condition": "AND",
+        "variableConditions": []
+      }
+    }
+  ]
+}
