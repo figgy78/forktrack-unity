@@ -1,6 +1,6 @@
 {
   "name": "com.forktrack.unity",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "displayName": "ForkTrack",
   "description": "Integrate ForkTrack narrative graphs into Unity games. Features static C# event API, variable system with operations and conditions, offline caching, secure API integration, and full v1.2.0 schema support.",
   "unity": "2021.3",
