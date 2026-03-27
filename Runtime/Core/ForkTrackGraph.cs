@@ -45,6 +45,9 @@ namespace ForkTrack.Core
         /// <summary>All group definitions</summary>
         public List<ForkTrackGroup> groups = new List<ForkTrackGroup>();
 
+        /// <summary>All location definitions</summary>
+        public List<ForkTrackLocation> locations = new List<ForkTrackLocation>();
+
         #endregion
 
         #region Lookup Dictionaries (Non-serialized, built at runtime)
@@ -75,6 +78,9 @@ namespace ForkTrack.Core
 
         [NonSerialized]
         private Dictionary<string, ForkTrackGroup> _groupsById;
+
+        [NonSerialized]
+        private Dictionary<string, ForkTrackLocation> _locationsById;
 
         [NonSerialized]
         private bool _initialized;
@@ -171,6 +177,14 @@ namespace ForkTrack.Core
                 if (!string.IsNullOrEmpty(group.id))
                     _groupsById[group.id] = group;
             }
+
+            // Locations by ID
+            _locationsById = new Dictionary<string, ForkTrackLocation>();
+            foreach (var location in locations)
+            {
+                if (!string.IsNullOrEmpty(location.id))
+                    _locationsById[location.id] = location;
+            }
         }
 
         private void ResolveNodeNames()
@@ -200,6 +214,12 @@ namespace ForkTrack.Core
                 if (!string.IsNullOrEmpty(node.groupId) && _groupsById.TryGetValue(node.groupId, out var group))
                 {
                     node.groupName = group.name;
+                }
+
+                // Resolve location name
+                if (!string.IsNullOrEmpty(node.locationId) && _locationsById.TryGetValue(node.locationId, out var location))
+                {
+                    node.locationName = location.name;
                 }
             }
         }
@@ -438,6 +458,42 @@ namespace ForkTrack.Core
 
         #endregion
 
+        #region Location Lookups
+
+        /// <summary>
+        /// Gets a location by its ID.
+        /// </summary>
+        public ForkTrackLocation GetLocationById(string locationId)
+        {
+            EnsureInitialized();
+
+            if (string.IsNullOrEmpty(locationId))
+                return null;
+
+            _locationsById.TryGetValue(locationId, out var location);
+            return location;
+        }
+
+        /// <summary>
+        /// Gets all nodes assigned to the specified location name (case-insensitive).
+        /// </summary>
+        public List<ForkTrackNode> GetNodesByLocation(string locationName)
+        {
+            EnsureInitialized();
+
+            var result = new List<ForkTrackNode>();
+            foreach (var node in nodes)
+            {
+                if (string.Equals(node.locationName, locationName, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(node);
+                }
+            }
+            return result;
+        }
+
+        #endregion
+
         #region Statistics
 
         /// <summary>
@@ -454,6 +510,11 @@ namespace ForkTrack.Core
         /// Gets the total number of variables in the graph.
         /// </summary>
         public int VariableCount => variables?.Count ?? 0;
+
+        /// <summary>
+        /// Gets the total number of locations in the graph.
+        /// </summary>
+        public int LocationCount => locations?.Count ?? 0;
 
         #endregion
 

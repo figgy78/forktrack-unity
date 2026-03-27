@@ -54,6 +54,10 @@ namespace ForkTrack.Core
         [NonSerialized]
         public string groupName;
 
+        /// <summary>Resolved location name (set during graph initialization)</summary>
+        [NonSerialized]
+        public string locationName;
+
         #endregion
 
         #region Categorization
@@ -63,6 +67,9 @@ namespace ForkTrack.Core
 
         /// <summary>Group this node belongs to (can be null)</summary>
         public string groupId;
+
+        /// <summary>Location this node belongs to (can be null)</summary>
+        public string locationId;
 
         #endregion
 
