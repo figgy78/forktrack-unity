@@ -1,8 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using ForkTrack.Core;
 using ForkTrack.Config;
+using ForkTrack.API;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace ForkTrack.Components
 {
@@ -92,6 +97,15 @@ namespace ForkTrack.Components
         /// </summary>
         public ForkTrackGraph CurrentGraph => ForkTrack.CurrentGraph;
 
+        /// <summary>
+        /// Gets or sets whether to force refresh from API even if a cached local graph is assigned
+        /// </summary>
+        public bool ForceRefresh
+        {
+            get => forceRefresh;
+            set => forceRefresh = value;
+        }
+
         #endregion
 
         #region Unity Lifecycle
@@ -128,20 +142,112 @@ namespace ForkTrack.Components
         /// </summary>
         public void LoadGraph()
         {
-            // If local graph is set, use it
+            if (!forceRefresh && localGraph != null)
+            {
+                ForkTrack.LoadGraphFromTextAsset(localGraph);
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(graphId))
+            {
+                var client = TokenAuthenticator.CreateClient();
+                if (client == null)
+                {
+                    Debug.LogWarning("[ForkTrack] Cannot load graph from API: no API token configured.");
+                    if (localGraph != null)
+                    {
+                        Debug.LogWarning("[ForkTrack] Falling back to local graph.");
+                        ForkTrack.LoadGraphFromTextAsset(localGraph);
+                    }
+                    return;
+                }
+
+                StartCoroutine(client.FetchGraph(
+                    graphId,
+                    onSuccess: json =>
+                    {
+                        ForkTrack.LoadGraphFromJSON(json);
+                        CacheGraphToFile(json, graphId);
+                    },
+                    onError: error =>
+                    {
+                        if (localGraph != null)
+                        {
+                            Debug.LogWarning($"[ForkTrack] API fetch failed: {error}. Falling back to local graph.");
+                            ForkTrack.LoadGraphFromTextAsset(localGraph);
+                        }
+                        else
+                        {
+                            Debug.LogError($"[ForkTrack] API fetch failed and no local graph is set: {error}");
+                        }
+                    }
+                ));
+                return;
+            }
+
             if (localGraph != null)
             {
                 ForkTrack.LoadGraphFromTextAsset(localGraph);
+                return;
             }
-            else if (!string.IsNullOrEmpty(graphId))
+
+            Debug.LogWarning("[ForkTrack] No graph configured. Set either graphId or localGraph.");
+        }
+
+        /// <summary>
+        /// Caches the fetched graph JSON to a versioned TextAsset file (Editor only)
+        /// and assigns it to localGraph for offline fallback.
+        /// </summary>
+        private void CacheGraphToFile(string json, string id)
+        {
+#if UNITY_EDITOR
+            try
             {
-                // TODO: API loading will be added when ForkTrackSettings is integrated
-                Debug.LogWarning("[ForkTrack] API loading not yet implemented. Set a local graph TextAsset.");
+                string graphName = id;
+                string major = "1";
+                string minor = "0";
+
+                // Attempt to extract version info from the JSON
+                int majorIdx = json.IndexOf("\"major\":");
+                if (majorIdx >= 0)
+                {
+                    int start = majorIdx + 8;
+                    int end = start;
+                    while (end < json.Length && (char.IsDigit(json[end]) || json[end] == '-')) end++;
+                    major = json.Substring(start, end - start).Trim();
+                }
+
+                int minorIdx = json.IndexOf("\"minor\":");
+                if (minorIdx >= 0)
+                {
+                    int start = minorIdx + 8;
+                    int end = start;
+                    while (end < json.Length && (char.IsDigit(json[end]) || json[end] == '-')) end++;
+                    minor = json.Substring(start, end - start).Trim();
+                }
+
+                // Sanitize the graph name for use as a filename
+                string sanitized = System.Text.RegularExpressions.Regex.Replace(graphName, @"[^a-zA-Z0-9_]", "_");
+                string fileName = $"{sanitized}_v{major}_{minor}.json";
+                string directory = "Assets/OnTapeRewind/Scripts/Forktrack";
+                string filePath = $"{directory}/{fileName}";
+
+                System.IO.Directory.CreateDirectory(directory);
+                System.IO.File.WriteAllText(filePath, json);
+                AssetDatabase.ImportAsset(filePath);
+
+                var cachedAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
+                if (cachedAsset != null)
+                {
+                    localGraph = cachedAsset;
+                    Debug.Log($"[ForkTrack] Graph cached to {filePath} and assigned as localGraph.");
+                }
             }
-            else
+            catch (Exception e)
             {
-                Debug.LogWarning("[ForkTrack] No graph configured. Set either graphId or localGraph.");
+                Debug.LogWarning($"[ForkTrack] Failed to cache graph to file: {e.Message}");
             }
+#endif
         }
 
         /// <summary>
