@@ -238,6 +238,12 @@ namespace ForkTrack.Internal
                 FireCompletionEvents(node, NodeState.Unlocked);
             }
 
+            // Cascade: dependents connected via OnUnlock edges become satisfied as
+            // soon as this node is Unlocked (not just Completed), so re-evaluate.
+            // Without this, children of an unlocked-but-not-completed parent stay
+            // Locked unless UnlockRootNodes happens to iterate them after the parent.
+            PerformCascadeUnlock(node.id);
+
             return true;
         }
 

@@ -5,6 +5,11 @@ All notable changes to the ForkTrack Unity Package will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.13] - 2026-05-08
+
+### Fixed
+- `PerformUnlock` now cascades to dependent nodes, matching the existing post-Complete cascade. Previously, children connected via `OnUnlock` edges only unlocked if `UnlockRootNodes` happened to iterate them after their parent in the JSON node array; otherwise they stayed Locked until the parent was Completed, making OnUnlock edges behave like OnComplete.
+
 ## [1.0.0] - 2026-01-12
 
 ### Added
