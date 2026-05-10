@@ -288,7 +288,7 @@ namespace ForkTrack.Internal
             // REQ-024: Cannot complete locked node
             if (node.IsLocked)
             {
-                Debug.LogWarning($"[ForkTrack] Cannot complete locked node: {node.id}. Unlock first.");
+                Debug.LogWarning($"[ForkTrack] Cannot complete locked node: {node.id} ({node.GetDisplayName()}). Unlock first.");
                 return false;
             }
 

@@ -206,6 +206,19 @@ namespace ForkTrack.API
                         }
 
                         response = JsonUtility.FromJson<GraphListResponse>(json);
+
+                        // Filter out version snapshots — only return live graphs (v0.0).
+                        if (response != null && response.graphs != null)
+                        {
+                            var liveGraphs = new System.Collections.Generic.List<GraphMetadata>();
+                            foreach (var g in response.graphs)
+                            {
+                                if (g.version_major == 0 && g.version_minor == 0)
+                                    liveGraphs.Add(g);
+                            }
+                            response.graphs = liveGraphs.ToArray();
+                        }
+
                         onSuccess?.Invoke(response);
                     }
                     catch (Exception e)
